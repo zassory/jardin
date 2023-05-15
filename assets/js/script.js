@@ -16,15 +16,19 @@ btnAgregar.addEventListener("click", function(){
     p1.innerHTML = nombresArray;
 });
 
-btnEliminar.addEventListener("click", function(){    
+btnEliminar.addEventListener("click", function(){
     let nombre = document.getElementById("txtEliminar").value;
     if(nombre === ""){
         alert("Debe ingresar algún nombre");
     }else{
         let acierto = nombresArray.indexOf(nombre);
-        console.log(acierto);
-        if(acierto !== -1){
-            console.log('No esta en el arreglo');
+        if(acierto === -1){
+            alert('No existe para eliminar');
+        }else{
+            console.log('Si esta en el arreglo');
+            console.log(nombre);
+            nombresArray = nombresArray.filter(elemento => elemento !== nombre);
+            p1.innerHTML = nombresArray;
         }
     }
 });
